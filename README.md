@@ -1,4 +1,4 @@
-# DTL-Location
+# DTL-FOs Location
 Hierarchical Localization Method for Forced Oscillations Disturbance Source Based on Two-Stage Deep Transfer Learning
 
 There are three files in the main directory:
