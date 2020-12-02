@@ -1,0 +1,48 @@
+%% System_level image generation
+
+ttt=1:1:5*30+1;
+label_1=[24,11,19,23,12,25,26,5,14,6,27];
+label_2=[4,10,1,2,28,3,13,29,7];
+label_3=9;
+label_4=[18,8,16,17,15,20,21,22];
+p29 = data.p./data.p(1,:);
+
+p29_1=p29(ttt,label_1);
+p29_2=p29(ttt,label_2);
+p29_3=p29(ttt,label_3);
+p29_4=p29(ttt,label_4);
+
+[coeff_1,score_1,latent_1] = pca(p29_1);
+[coeff_2,score_2,latent_2] = pca(p29_2);
+[coeff_3,score_3,latent_3] = pca(p29_3);
+[coeff_4,score_4,latent_4] = pca(p29_4);
+
+pca_size=1;
+scoreregular_1=[score_1(:,1:min(pca_size,size(score_1,2))),zeros(size(score_1,1),pca_size-min(pca_size,size(score_1,2)))];
+scoreregular_2=[score_2(:,1:min(pca_size,size(score_2,2))),zeros(size(score_2,1),pca_size-min(pca_size,size(score_2,2)))];
+scoreregular_3=[score_3(:,1:min(pca_size,size(score_3,2))),zeros(size(score_3,1),pca_size-min(pca_size,size(score_3,2)))];
+scoreregular_4=[score_4(:,1:min(pca_size,size(score_4,2))),zeros(size(score_4,1),pca_size-min(pca_size,size(score_4,2)))];
+fs=30;
+%     D_1 = wvd(scoreregular_1,fs);%,'smoothedPseudo');
+%     D_2 = wvd(scoreregular_2,fs);%,'smoothedPseudo');
+%     D_3 = wvd(scoreregular_3,fs);%,'smoothedPseudo');
+%     D_4 = wvd(scoreregular_4,fs);%,'smoothedPseudo');
+D_1 = wvd(scoreregular_1,fs,'smoothedPseudo');
+D_2 = wvd(scoreregular_2,fs,'smoothedPseudo');
+D_3 = wvd(scoreregular_3,fs,'smoothedPseudo');
+D_4 = wvd(scoreregular_4,fs,'smoothedPseudo');
+% D_5 = wvd(scoreregular_5,fs);%,'smoothedPseudo');
+%     imageeeee=[scoreregular_1,...
+%         scoreregular_2...
+%         scoreregular_3...
+%         scoreregular_4...
+%         scoreregular_5];
+imageeeee=[D_1,...
+    D_2...
+    D_3...
+    D_4];
+data_image=imagesc(imageeeee);
+set(gca,'XTick',[],'YTick',[],'XColor','none','YColor','none','looseInset',[0 0 0 0]);
+
+datanames = {'C:\Users\Pluto\Desktop\DTL FO_Location\DEF_Invalid_Case\test\image.png'};
+saveas(data_image, cell2mat(datanames), 'png');
