@@ -11,4 +11,4 @@ There are three files in the main directory:
 
 "DEF_Invalid_Case" - This folder shows two cases which DEF method cannot locate the FOs source.
 
-Please contact Dr.Feng (sfeng@seu.edu.cn) for further documentation and explanation.
+Please contact Dr. Feng (sfeng@seu.edu.cn) for further documentation and explanation.
