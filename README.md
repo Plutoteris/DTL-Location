@@ -11,6 +11,6 @@ There are three files in the main directory:
 
 "DEF_Invalid_Case" - This folder shows two cases which DEF method cannot locate the FOs source.
 
-2021/9/1 - Upload the function related to AlexNet and GoogLeNet models training.
+2021/9/1 - Upload the functions related to AlexNet and GoogLeNet models training.
 
 Please contact Dr. Feng (sfeng@seu.edu.cn) for further documentation and explanation.
